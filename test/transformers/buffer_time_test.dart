@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rxdart/rxdart.dart';
 
 /**
- * WindowTime
+ * BufferTime
  * 
  * 각 항목이 Stream소스 시퀀스의 항목을 포함 하는 스트림을 생성하고
  * 주어진시간마다 샘플링하여 창을 내보냅니다.
@@ -23,13 +23,13 @@ Stream<int> getStream(int n) async* {
 // window |       0                              1                         2                                     3
 
 main() {
-  test('windowTime', () async {
+  test('bufferTime', () async {
     // given
     var a = getStream(4);
 
     // when
     Stream<List<int>> result = a
-        .windowTime(Duration(milliseconds: 160))
+        .bufferTime(Duration(milliseconds: 160))
         .asyncMap((stream) => stream.toList());
 
     // then
