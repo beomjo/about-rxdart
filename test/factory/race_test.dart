@@ -26,22 +26,6 @@ main() {
     ));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('race stream', () {
-    // given
-    var a = Rx.timer(1, Duration(seconds: 3)),
-        b = Rx.timer(2, Duration(seconds: 2)),
-        c = Rx.timer(3, Duration(seconds: 1));
-
-    // when
-    final stream = RaceStream([a, b, c]);
-
-    // then
-    stream.listen(expectAsync1(
-      (value) => expect(value, 3),
-      count: 1,
-    ));
-  }, timeout: Timeout(Duration(seconds: 5)));
-
   test('race 수행중 에러발생', () async {
     // given
     var a = Rx.timer(1, Duration(seconds: 1)),

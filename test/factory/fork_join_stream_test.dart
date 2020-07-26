@@ -28,7 +28,7 @@ main() {
         c = Stream.fromIterable(['C', 'D']);
 
     // when
-    final stream = ForkJoinStream.list<String>([a, b, c]);
+    final stream = Rx.forkJoinList([a, b, c]);
 
     // then
     await expectLater(
@@ -46,8 +46,7 @@ main() {
         c = Stream.fromIterable(['C', 'D']);
 
     // when
-    final stream =
-        ForkJoinStream([a, b, c], (List<String> values) => values.last);
+    final stream = Rx.forkJoin([a, b, c], (List<String> values) => values.last);
 
     // then
     await expectLater(stream, emitsInOrder(['D', emitsDone]));
@@ -58,7 +57,7 @@ main() {
     var a = Stream.fromIterable(['1']), b = Stream.fromIterable(['2', '3']);
 
     // when
-    final stream = ForkJoinStream.combine2(a, b, (a, b) => a + b);
+    final stream = Rx.forkJoin2(a, b, (a, b) => a + b);
 
     // then
     await expectLater(stream, emitsInOrder(['13', emitsDone]));
@@ -71,8 +70,7 @@ main() {
         c = Stream<int>.error(Exception());
 
     // when
-    final stream =
-        CombineLatestStream.combine3(a, b, c, (a, b, c) => a + b + c);
+    final stream = Rx.forkJoin3(a, b, c, (a, b, c) => a + b + c);
 
     // then
     await expectLater(stream, emitsError(TypeMatcher<Exception>()));

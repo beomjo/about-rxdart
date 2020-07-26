@@ -44,7 +44,7 @@ main() {
     var a = _getRetryStream(retries);
 
     // when
-    final stream = RetryStream(a, retries);
+    final stream = Rx.retry(a, retries);
 
     await expectLater(
       stream,
@@ -58,7 +58,7 @@ main() {
     var a = _getRetryStream(retries);
 
     // when
-    final stream = RetryStream(a);
+    final stream = Rx.retry(a);
 
     await expectLater(
       stream,

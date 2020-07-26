@@ -19,7 +19,7 @@ main() {
         c = Stream.fromIterable(['C', 'D']);
 
     // when
-    final stream = ZipStream([a, b, c], (values) => values);
+    final stream = Rx.zip([a, b, c], (values) => values);
 
     // then
     await expectLater(
@@ -35,7 +35,7 @@ main() {
     var a = Stream.fromIterable(['1']), b = Stream.fromIterable(['2', '3']);
 
     // when
-    final stream = ZipStream.zip2(a, b, (a, b) => a + b);
+    final stream = Rx.zip2(a, b, (a, b) => a + b);
 
     // then
     await expectLater(stream, emitsInOrder(['12', emitsDone]));
@@ -48,7 +48,7 @@ main() {
         c = Stream<int>.error(Exception());
 
     // when
-    final stream = ZipStream.zip3(a, b, c, (a, b, c) => a + b + c);
+    final stream = Rx.zip3(a, b, c, (a, b, c) => a + b + c);
 
     // then
     await expectLater(stream, emitsError(TypeMatcher<Exception>()));

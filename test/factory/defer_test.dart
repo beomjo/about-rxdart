@@ -26,22 +26,6 @@ main() {
     ));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('defer stream', () {
-    // given
-    var a = Stream.value(1);
-
-    // when
-    final stream = DeferStream(() => a);
-
-    // then
-    stream.listen(expectAsync1(
-      (value) {
-        expect(value, 1);
-      },
-      count: 1,
-    ));
-  }, timeout: Timeout(Duration(seconds: 5)));
-
   test('defer는 기본적으로 단일구독이므로, 여러번 구독햇을때 실패해야한다', () {
     // given
     var a = Stream.value(1);

@@ -23,18 +23,6 @@ main() {
       expect(stream, emitsInOrder([true]));
     }, timeout: Timeout(Duration(seconds: 5)));
 
-    test('SequenceEqualStream 두 스트림이 같아야한다', () {
-      // given
-      var a = Stream.fromIterable([0, 1, 2, 3, 4]);
-      var b = Stream.fromIterable([0, 1, 2, 3, 4]);
-
-      // when
-      final stream = SequenceEqualStream(a, b);
-
-      // then
-      expect(stream, emitsInOrder([true]));
-    }, timeout: Timeout(Duration(seconds: 5)));
-
     test('시간차가 있어도 두스트림이 같은지 비교해야한다', () {
       // given
       var a = Stream.periodic(const Duration(milliseconds: 100), (i) => i + 1)

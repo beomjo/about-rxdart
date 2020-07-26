@@ -13,7 +13,7 @@ main() {
     const value = 1;
 
     // when
-    final stream = TimerStream(value, Duration(milliseconds: 1));
+    final stream = Rx.timer(value, Duration(milliseconds: 1));
 
     // then
     await expectLater(stream, emitsInOrder(<dynamic>[value, emitsDone]));
@@ -24,7 +24,7 @@ main() {
     const value = 1;
 
     // when
-    final stream = TimerStream(value, Duration(milliseconds: 1));
+    final stream = Rx.timer(value, Duration(milliseconds: 1));
     stream.listen(null);
 
     // then

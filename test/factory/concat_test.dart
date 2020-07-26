@@ -52,7 +52,7 @@ main() {
       var c = Stream.value(3);
 
       // when
-      final stream = ConcatStream([a, b, c]);
+      final stream = Rx.concat([a, b, c]);
 
       // then
       expect(stream, emitsInOrder([1, 2, 3]));
@@ -119,7 +119,7 @@ main() {
       var c = Stream.value(3);
 
       // when
-      final stream = ConcatEagerStream([a, b, c]);
+      final stream = Rx.concatEager([a, b, c]);
 
       // then
       expect(stream, emitsInOrder([1, 2, 3]));

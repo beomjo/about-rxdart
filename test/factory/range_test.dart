@@ -14,7 +14,7 @@ main() {
     // given
 
     // when
-    final stream = RangeStream(1, 3);
+    final stream = Rx.range(1, 3);
 
     // then
     await expectLater(stream, emitsInOrder([1, 2, 3, emitsDone]));
@@ -24,7 +24,7 @@ main() {
     // given
 
     // when
-    final stream = RangeStream(1, 5);
+    final stream = Rx.range(1, 5);
 
     // then
     stream.listen(null);
@@ -34,7 +34,7 @@ main() {
     // given
 
     // when
-    final stream = RangeStream(1, 1);
+    final stream = Rx.range(1, 1);
 
     // then
     stream.listen(expectAsync1((actual) {
@@ -46,7 +46,7 @@ main() {
     // given
 
     // when
-    final stream = RangeStream(3, 1);
+    final stream = Rx.range(3, 1);
 
     // then
     await expectLater(stream, emitsInOrder([3, 2, 1, emitsDone]));

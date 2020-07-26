@@ -24,19 +24,6 @@ main() {
     await expectLater(stream, emitsInOrder([1, 2, 3, 4, 0, 1, 2]));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('merge stream', () async {
-    // given
-    var a = Stream.periodic(const Duration(seconds: 1), (count) => count)
-            .take(3),
-        b = Stream.fromIterable(const [1, 2, 3, 4]);
-
-    // when
-    final stream = MergeStream([a, b]);
-
-    // then
-    await expectLater(stream, emitsInOrder([1, 2, 3, 4, 0, 1, 2]));
-  }, timeout: Timeout(Duration(seconds: 5)));
-
   test('merge를 여러번 구독할시 상태에러가 발생한다', () async {
     // givne
     var a = Stream.periodic(const Duration(seconds: 1), (count) => count)

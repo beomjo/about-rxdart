@@ -45,7 +45,7 @@ main() {
     var a = _getRepeatStream('A');
 
     // when
-    final stream = RepeatStream(a, repeatCount);
+    final stream = Rx.repeat(a, repeatCount);
 
     // then
     await expectLater(
@@ -60,7 +60,7 @@ main() {
     var a = _getErroneusRepeatStream('A');
 
     // when
-    final streamWithError = RepeatStream(a, repeatCount);
+    final streamWithError = Rx.repeat(a, repeatCount);
 
     // then
     await expectLater(

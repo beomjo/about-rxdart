@@ -20,7 +20,7 @@ main() {
         c = Stream.fromIterable(['C', 'D']);
 
     // when
-    final stream = CombineLatestStream.list<String>([a, b, c]);
+    final stream = Rx.combineLatestList([a, b, c]);
 
     // then
     await expectLater(
@@ -40,7 +40,7 @@ main() {
 
     // when
     final stream =
-        CombineLatestStream([a, b, c], (List<String> values) => values.last);
+        Rx.combineLatest([a, b, c], (List<String> values) => values.last);
 
     // then
     await expectLater(stream, emitsInOrder(['C', 'D', emitsDone]));
@@ -51,7 +51,7 @@ main() {
     var a = Stream.fromIterable(['1']), b = Stream.fromIterable(['2', '3']);
 
     // when
-    final stream = CombineLatestStream.combine2(a, b, (a, b) => a + b);
+    final stream = Rx.combineLatest2(a, b, (a, b) => a + b);
 
     // then
     await expectLater(stream, emitsInOrder(['12', '13', emitsDone]));
@@ -64,8 +64,7 @@ main() {
         c = Stream<int>.error(Exception());
 
     // when
-    final stream =
-        CombineLatestStream.combine3(a, b, c, (a, b, c) => a + b + c);
+    final stream = Rx.combineLatest3(a, b, c, (a, b, c) => a + b + c);
 
     // then
     await expectLater(stream, emitsError(TypeMatcher<Exception>()));

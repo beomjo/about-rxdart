@@ -65,7 +65,7 @@ main() {
     var whenFactory = _alwaysThrow;
 
     // when
-    var stream = RetryWhenStream(a, whenFactory);
+    var stream = Rx.retryWhen(a, whenFactory);
 
     //then
     expect(
@@ -80,7 +80,7 @@ main() {
     var whenFactory = _neverThrow;
 
     // when
-    final stream = RetryWhenStream(a, whenFactory).take(6);
+    final stream = Rx.retryWhen(a, whenFactory).take(6);
 
     // then
     expect(
@@ -95,7 +95,7 @@ main() {
 
     // when
 
-    final streamWithError = RetryWhenStream(a, whenFactory);
+    final streamWithError = Rx.retryWhen(a, whenFactory);
 
     // then
     expect(
@@ -110,7 +110,7 @@ main() {
     var whenFactory = _alwaysThrow;
 
     // when
-    final streamWithError = RetryWhenStream(a, whenFactory);
+    final streamWithError = Rx.retryWhen(a, whenFactory);
 
     // then
     await expectLater(
