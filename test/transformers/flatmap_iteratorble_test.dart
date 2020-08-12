@@ -20,9 +20,10 @@ main() {
 
     //when
     Stream<int> stream =
-        a.flatMapIterable((int i) => Stream<List<int>>.value(<int>[i]));
+        a.flatMapIterable((int i) => Stream<List<int>>.value(<int>[i, i]));
 
     //then
-    await expectLater(stream, emitsInOrder(<dynamic>[1, 2, 3, 4, emitsDone]));
+    await expectLater(
+        stream, emitsInOrder(<dynamic>[1, 1, 2, 2, 3, 3, 4, 4, emitsDone]));
   }, timeout: Timeout(Duration(seconds: 5)));
 }

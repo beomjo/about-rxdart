@@ -23,7 +23,7 @@ Stream<int> getStream(int n) async* {
 // window |       0                              1                         2                                     3
 
 main() {
-  test('bufferTime', () async {
+  test('지정된 시간(160ms)동안 버퍼에 쌓고 방출해야한다', () async {
     // given
     var a = getStream(4);
 

@@ -10,7 +10,7 @@ import 'package:matcher/matcher.dart';
  */
 
 main() {
-  test('Range', () async {
+  test('1-3범위 안의 값을 방출해야 한다', () async {
     // given
 
     // when
@@ -30,7 +30,7 @@ main() {
     stream.listen(null);
     await expectLater(() => stream.listen(null), throwsA(isStateError));
   }, timeout: Timeout(Duration(seconds: 5)));
-  test('Range start와 end가 같으면 1개의 항목만 방출해야한다', () async {
+  test('start와 end가 같으면 1개의 항목만 방출해야한다', () async {
     // given
 
     // when
@@ -42,7 +42,7 @@ main() {
     }, count: 1));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('Range 역순으로 배출해야한다', () async {
+  test('역순으로 배출해야한다', () async {
     // given
 
     // when

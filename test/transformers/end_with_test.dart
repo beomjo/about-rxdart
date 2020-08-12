@@ -4,13 +4,13 @@ import 'package:rxdart/rxdart.dart';
 /**
  * EndWith
  * 
- * Stream닫기 전에 소스에 값을 추가합니다 .
+ * 소스스트림이 값을 방출한후, 방출한값 뒤에 값을 추가합니다 
  * 
  */
 
 main() {
   Stream<int> _getStream() => Stream.fromIterable(const [1, 2, 3, 4]);
-  test('endWith', () async {
+  test('소스트림이 값을 방출한후 ,5을 추가해야한다', () async {
     // given
     final a = _getStream();
 

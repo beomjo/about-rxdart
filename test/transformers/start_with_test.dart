@@ -9,7 +9,7 @@ import 'package:rxdart/rxdart.dart';
 
 main() {
   Stream<int> _getStream() => Stream.fromIterable(const [1, 2, 3, 4]);
-  test('startWith', () async {
+  test('소스스트림이 값을 방출할때, 앞에 0을 추가해아한다 ', () async {
     // given
     final a = _getStream();
 

@@ -9,7 +9,7 @@ import 'package:rxdart/rxdart.dart';
  */
 
 main() {
-  test('concatWith', () async {
+  test('소스스트림을 내보낸뒤 지정된 스트림을 순서대로 내보내야한다', () async {
     // given
     final delayedStream = Rx.timer(1, Duration(milliseconds: 10));
     final immediateStream = Stream.value(2);

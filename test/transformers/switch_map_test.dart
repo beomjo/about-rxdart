@@ -41,7 +41,7 @@ main() {
     return controller.stream;
   }
 
-  test('switchMap', () async {
+  test('소스스트림과 다른스트림중, 가장 최근에 값을 방출한 스트림의 값들만 방출해야한다', () async {
     //given
     var a = _getStream();
 
@@ -54,27 +54,6 @@ main() {
       emitsInOrder(
         [5, 6, 7, 8],
       ),
-    );
-  }, timeout: Timeout(Duration(seconds: 5)));
-
-  test('mapTo with Error', () async {
-    //given
-    var a = Rx.range(1, 4).concatWith([Stream<int>.error(Error())]);
-
-    //when
-    final result = a.mapTo(true);
-
-    //then
-    await expectLater(
-      result,
-      emitsInOrder(<dynamic>[
-        true,
-        true,
-        true,
-        true,
-        emitsError(TypeMatcher<Error>()),
-        emitsDone,
-      ]),
     );
   }, timeout: Timeout(Duration(seconds: 5)));
 }

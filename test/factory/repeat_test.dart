@@ -24,7 +24,7 @@ main() {
             .concatWith([Stream<String>.error(Error())]);
       };
 
-  test('repeat', () async {
+  test('repeat count 3일때 3번 반복 해야한다', () async {
     // given
     const repeatCount = 3;
     var a = _getRepeatStream('A');
@@ -54,7 +54,7 @@ main() {
     );
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('도중 에러가 발생하여도 지정된 횟수를 반복해야한다', () async {
+  test('반복 도중 에러가 발생하여도 지정된 횟수를 반복해야한다', () async {
     // given
     const repeatCount = 2;
     var a = _getErroneusRepeatStream('A');

@@ -24,7 +24,7 @@ Stream<int> getStream() =>
 // t_event  |                                  O                                            O                                                
 
 main() {
-  test('throttle', () async {
+  test('throttle스트림이 값을 방출할때마다 소스스트림의 첫 번째 항목을 방출해야한다', () async {
     // given
     var a = getStream();
 
@@ -46,7 +46,7 @@ main() {
     );
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('throttle,  trailing=true', () async {
+  test('trailing=true이면 throttle을 시간만큼 시작시간이 지연되서 시작되야한다', () async {
     // given
     var a = getStream();
 

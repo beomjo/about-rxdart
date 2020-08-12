@@ -25,7 +25,7 @@ Stream<Stream<String>> get errorStream => Stream.fromIterable([
 
 main() {
   group('SwitchLatestStream', () {
-    test('상위 스트림의 에서 리스트데이터를 방출', () {
+    test('상위 스트림의에서 리스트데이터를 방출', () {
       // given
       var a = Stream.value(Stream.fromIterable(const ['A', 'B', 'C']));
 
@@ -39,7 +39,7 @@ main() {
       );
     }, timeout: Timeout(Duration(seconds: 5)));
 
-    test('상위스트림의 오로지 가장 최근값이 먼저 방출되어야한다', () {
+    test('상위스트림의 가장 최근값이 먼저 방출되어야한다', () {
       // given
 
       // when

@@ -21,7 +21,7 @@ import 'package:matcher/matcher.dart';
  */
 
 main() {
-  test('ForkJoin list', () async {
+  test('각 스트림의 가장 최근의 값을 합쳐 List로 방출해야한다', () async {
     // given
     var a = Stream.fromIterable(['a']),
         b = Stream.fromIterable(['b']),
@@ -32,14 +32,15 @@ main() {
 
     // then
     await expectLater(
-        stream,
-        emitsInOrder([
-          ['a', 'b', 'D'],
-          emitsDone
-        ]));
+      stream,
+      emitsInOrder([
+        ['a', 'b', 'D'],
+        emitsDone
+      ]),
+    );
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('ForkJoin 결합 조건 추가', () async {
+  test('각 스트림의 가장 최근의 값을 합쳐 List로 방출해야한다, 결합 조건 추가', () async {
     // given
     var a = Stream.fromIterable(['a']),
         b = Stream.fromIterable(['b']),
@@ -63,7 +64,7 @@ main() {
     await expectLater(stream, emitsInOrder(['13', emitsDone]));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('ForkJoin 스트림중 에러가 포함되어있으면 에러를 방출한다', () async {
+  test('ForkJoin 스트림중 에러가 포함되어있으면 결합하지 않아야한다', () async {
     // given
     var a = Stream.value(1),
         b = Stream.value(1),

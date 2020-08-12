@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rxdart/rxdart.dart';
 
 /**
- * Buffer
+ * BufferTest
  * 
  * 각 항목이 Stream소스 시퀀스의 항목을 포함 하는 스트림 을 작성하고 테스트(조건)을 통과 될 때마다 일괄 처리합니다.
  */
@@ -18,7 +18,7 @@ Stream<int> getStream(int n) async* {
 }
 
 main() {
-  test('bufferTest', () async {
+  test('테스트 조건을 통과할때까지 buffer에 쌓고, 조건을 통과하면 방출해야한다', () async {
     // given
     var a = Rx.range(0, 4);
 
@@ -38,7 +38,7 @@ main() {
     );
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('windowTest Transformer', () async {
+  test('BufferTest Transformer사용', () async {
     // given
     var a = Rx.range(0, 4);
     final transformer = BufferTestStreamTransformer<int>((i) => i % 2 == 0);

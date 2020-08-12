@@ -22,7 +22,7 @@ Stream<int> getSampleStream() =>
 // s_event      |                    O               O                 o
 
 main() {
-  test('Sample', () async {
+  test('샘플 스트림이 방출될때마다 소스스트림에서 가장 최근에 방출한 값을 방출한다', () async {
     // given
     var a = getStream();
 

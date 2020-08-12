@@ -18,7 +18,7 @@ Stream<int> getStream(int n) async* {
 }
 
 main() {
-  test('Buffer', () async {
+  test('160ms동안 버퍼에 쌓아 List로 방출해야한다', () async {
     // given
     var a = getStream(4);
 

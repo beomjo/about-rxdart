@@ -21,7 +21,7 @@ Stream<int> getStream(int n) async* {
 }
 
 main() {
-  test('bufferCount', () async {
+  test('2개 마다 buffer에 쌓아 내보내야한다', () async {
     // given
     var a = Rx.range(0, 4);
 
@@ -40,7 +40,7 @@ main() {
         ]));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('bufferCount count2, startBufferEvery1', () async {
+  test('2개씩 buffer에 쌓아 내보낸뒤, startBufferEvery값부터 새 버퍼링을 시작해야한다', () async {
     // given
     var a = Rx.range(0, 4);
 

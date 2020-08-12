@@ -35,7 +35,7 @@ main() {
     return controller.stream;
   }
 
-  test('skipUntil', () async {
+  test('other스트림이 값을 방출한 후에, 소스스트림값들만 방출해야한다', () async {
     // given
     final a = _getStream();
 

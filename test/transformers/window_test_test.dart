@@ -18,7 +18,7 @@ Stream<int> getStream(int n) async* {
 }
 
 main() {
-  test('windowTest', () async {
+  test('지정한 조건마다 창을열어야한다', () async {
     // given
     var a = Rx.range(0, 4);
 
@@ -38,7 +38,7 @@ main() {
     );
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('windowTest Transformer', () async {
+  test('windowTest Transformer함수 사용', () async {
     // given
     var a = Rx.range(0, 4);
     final transformer = WindowTestStreamTransformer<int>((i) => i % 2 == 0);

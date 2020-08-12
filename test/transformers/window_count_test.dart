@@ -22,7 +22,7 @@ Stream<int> getStream(int n) async* {
 }
 
 main() {
-  test('windowCount', () async {
+  test('2개를 카운트하여 새 창을 열어야한다', () async {
     // given
     var a = Rx.range(0, 4);
 
@@ -41,7 +41,7 @@ main() {
         ]));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('windowCount count2, startBufferEvery1', () async {
+  test('2개를 카운트하여 새 창을 열고, startBufferEvery값부터 다시 창을 열기 시작해야한다 ', () async {
     // given
     var a = Rx.range(0, 4);
 

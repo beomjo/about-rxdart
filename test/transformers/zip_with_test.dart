@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
  */
 
 main() {
-  test('WhereType', () async {
+  test('ZipWith', () async {
     // given
     final a = Stream<int>.value(1);
 

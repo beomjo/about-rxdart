@@ -11,7 +11,7 @@ import 'package:rxdart/rxdart.dart';
  */
 
 main() {
-  test('never', () async {
+  test('어떤 에러나 데이터등을 리턴하지않아야한다', () async {
     // given
     var onDataCalled = false, onDoneCalled = false, onErrorCalled = false;
 

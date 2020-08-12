@@ -36,7 +36,7 @@ main() {
     return controller.stream;
   }
 
-  test('takeUntil', () async {
+  test('다른스트림의 값이 방출될때까지만, 소스스트림의 값들을 방출해야한다', () async {
     // given
     final a = _getStream();
 

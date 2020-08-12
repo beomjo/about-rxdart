@@ -9,7 +9,7 @@ import 'package:rxdart/rxdart.dart';
  */
 
 main() {
-  test('defaultIfEmpty', () async {
+  test('소스스트림이 값을 방출하지 않았을때, default값(true_를 내보내야한다', () async {
     // given
     var a = Stream<bool>.empty();
 
@@ -20,7 +20,7 @@ main() {
     await expectLater(result, emitsInOrder(<dynamic>[true, emitsDone]));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('defaultIfEmpty notEmpty', () async {
+  test('소스스트림이 값을 방출했을때, default값을 내보내지않아야한다', () async {
     // given
     var a = Stream.fromIterable(const [false, false, false]);
 

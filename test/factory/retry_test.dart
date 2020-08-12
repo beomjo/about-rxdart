@@ -24,7 +24,7 @@ main() {
     };
   }
 
-  test('retry', () async {
+  test('3번 재시도 해야한다', () async {
     // given
     const retries = 3;
     var a = _getRetryStream(retries);

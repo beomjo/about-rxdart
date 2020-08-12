@@ -11,7 +11,7 @@ import 'package:rxdart/rxdart.dart';
  */
 
 main() {
-  test('takeUntil', () async {
+  test('조건을 만족할때까지만 소스스트림의 값을 내보내야한다', () async {
     // given
     final a = Stream.fromIterable([2, 3, 4, 5, 6, 1, 2, 3]);
 
@@ -22,7 +22,7 @@ main() {
     await expectLater(result, emitsInOrder([2, 3]));
   }, timeout: Timeout(Duration(seconds: 5)));
 
-  test('takeUntil 조건에 일치하는 값이 없을때, 소스스트림의 첫 번째 값을 방출한다', () async {
+  test('TakeWhilInclusive 조건에 일치하는 값이 없을때, 소스스트림의 첫 번째 값을 방출한다', () async {
     // given
     final a = Stream.fromIterable([2, 3, 4, 5, 6, 1, 2, 3]);
 

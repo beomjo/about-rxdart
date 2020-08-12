@@ -23,7 +23,7 @@ Stream<int> getStream(int n) async* {
 // window |       0                              1                         2                                     3
 
 main() {
-  test('windowTime', () async {
+  test('160ms마다 창을 새로 열어야한다', () async {
     // given
     var a = getStream(4);
 

@@ -5,7 +5,7 @@ import 'package:matcher/matcher.dart';
 /**
  * Zip
  * 
- * 모든 스트림 시퀀스가 ​​해당 최소 1개씩값을 방출할때마다 
+ * 각각 스트림이 ​ 최소 1개씩값을 방출할때마다 
  * 지정된 지퍼 함수를 ​​사용하여 지정된 스트림을 하나의 스트림 시퀀스로 병합합니다.
  * 
  * marble diagram https://rxmarbles.com/#zip
