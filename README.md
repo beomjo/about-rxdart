@@ -1,4 +1,4 @@
-# Rxdart Playground
+# About RxDart
 
 ## Rxdart에 대하여
 [Rxdart에 대하여 원문보기](https://beomseok95.tistory.com/321)
